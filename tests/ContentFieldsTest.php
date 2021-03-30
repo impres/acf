@@ -11,7 +11,7 @@ use Corcel\Model\Post;
  *
  * @author Junior Grossi <juniorgro@gmail.com>
  */
-class ContentFieldsTest extends PHPUnit_Framework_TestCase
+class ContentFieldsTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @var Post
@@ -21,7 +21,7 @@ class ContentFieldsTest extends PHPUnit_Framework_TestCase
     /**
      * Setup a base $this->post object to represent the page with the content fields.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->post = Post::find(21); // it' a page with the custom fields
     }
@@ -97,8 +97,8 @@ class ContentFieldsTest extends PHPUnit_Framework_TestCase
             $this->assertTrue(strlen($image->url) > 0);
         }
 
-        // Testing the image in the 6th position
-        $image = $gallery->get()->get(6);
+        // Testing the image in the 0th position
+        $image = $gallery->get()->get(0);
         $this->assertEquals(1920, $image->width);
         $this->assertEquals(1080, $image->height);
     }
